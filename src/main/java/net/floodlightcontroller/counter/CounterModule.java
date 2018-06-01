@@ -57,7 +57,8 @@ public class CounterModule implements IOFMessageListener, IFloodlightModule {
 
                     /* Still more to come... */
 
-                    logger.info("Received a packet from " + dstIp.toString() + ". Packet count: " + counter.incrementAndGet());
+                    logger.info("Received a packet from " + ipv4.getSourceAddress() + "to " + ipv4.getDestinationAddress() +  ". Packet count: " + counter.incrementAndGet());
+                    logger.info("Packet protocol: " + ipv4.getProtocol().toString());
 
                 } else if (eth.getEtherType() == EthType.ARP) {
                     /* We got an ARP packet; get the payload from Ethernet */
