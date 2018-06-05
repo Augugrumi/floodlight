@@ -40,14 +40,14 @@ public class CounterModule implements IOFMessageListener, IFloodlightModule {
                 l2.setEtherType(EthType.IPv4);
 
                 IPv4 l3 = new IPv4();
-                l3.setSourceAddress(IPv4Address.of("10.0.0.0"));
-                l3.setDestinationAddress(IPv4Address.of("10.0.0.3"));
+                l3.setSourceAddress(IPv4Address.of("192.168.1.1"));
+                l3.setDestinationAddress(IPv4Address.of("192.168.1.3"));
                 l3.setTtl((byte) 64);
                 l3.setProtocol(IpProtocol.UDP);
 
-                UDP l4 = new UDP();
+                TCP l4 = new TCP();
                 l4.setSourcePort(TransportPort.of(1));
-                l4.setDestinationPort(TransportPort.of(9090));
+                l4.setDestinationPort(TransportPort.of(67));
 
                 Data l7 = new Data();
                 l7.setData(new byte[1000]);
